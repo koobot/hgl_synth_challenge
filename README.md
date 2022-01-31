@@ -1,2 +1,1 @@
-# hgl_synth_challenge
-HGL Synthetic Challenge
+# HGL Synthetic Challenge
