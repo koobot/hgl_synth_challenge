@@ -4,7 +4,7 @@ The Australian Bureau of Statistics (ABS) team.
 
 [HGL 2022 Synthetic Data Challenge Event Link](https://indico.un.org/event/1000359/)
 
-There are 3 methods:
+We generated synthetic data using 3 different methods:
 
 1. [Simulated data](#simulated-data)
 2. [Classification and Regression Trees (CART)](#cart)
@@ -44,3 +44,4 @@ To run the notebook, we have written some [basic install instructions](./install
 - CART method
 - Privacy evaluation
 - Merge `install_run_ctgan.md` with readme??
+
