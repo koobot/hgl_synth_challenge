@@ -14,6 +14,19 @@ We generated synthetic data using 3 different methods:
 
 Functions are in R package: `ABSsimulateddata_*.tar.gz`. The package was created by Joseph Chien.
 
+Install R package `semTools` before installing the `ABSsimulateddata` package.
+
+If installing locally doesn't work, here's an alternative method to try in R:
+
+```
+untar("ABSsimulateddata_[x].tar.gz")
+unzip("ABSsimulateddata.zip")
+library(devtools)
+install("ABSsimulateddata")
+```
+
+
+
 ## <a name="cart"></a>2. CART
 
 From R `synthpop` package.
