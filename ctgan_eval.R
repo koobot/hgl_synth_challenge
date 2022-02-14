@@ -62,3 +62,6 @@ gan_data[dup_out$replications,]
 synthpop::compare(gan_data, ods, utility.stats = c("S_pMSE", "df"))
 
 utility.tables(gan_data, ods, tab.stats="all", tables="twoway")
+
+
+
