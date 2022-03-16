@@ -60,27 +60,27 @@ text(disclosure~med_PMSE, labels = plotnames, pos=4)
 
 ### General PMSE scores
 # GAN Data
-utility.gen(gan_data, ods, method = "logit", maxorder = 4)
+utility.gen(gan_data, ods, method = "logit", maxorder = 1)
 ##      pMSE    S_pMSE 
-##  0.044817 13.279192
+##  0.024086 22.668925 
 set.seed(42)
 utility.gen(gan_data, ods, method = "cart", resamp.method = "perm", print.variable.importance = T)
 ##      pMSE   S_pMSE 
 ##  0.174851 4.552905
 
 # Simulated Data
-utility.gen(sim_data, ods, method = "logit", maxorder = 4)
+utility.gen(sim_data, ods, method = "logit", maxorder = 1)
 ##      pMSE    S_pMSE 
-##  0.019014  5.633816
+##  0.011416 10.744713
 set.seed(42)
 utility.gen(sim_data, ods, method = "cart", resamp.method = "perm", print.variable.importance = T)
 ##      pMSE   S_pMSE 
 ##  0.199173 5.204665
 
 # CART Data
-utility.gen(cart_data, ods, method = "logit", maxorder = 4)
+utility.gen(cart_data, ods, method = "logit", maxorder = 1)
 ##      pMSE   S_pMSE 
-##  0.004035 1.195561
+##  0.001567 1.475240
 set.seed(42)
 utility.gen(cart_data, ods, method = "cart", resamp.method = "perm", print.variable.importance = T)
 ##      pMSE   S_pMSE 
