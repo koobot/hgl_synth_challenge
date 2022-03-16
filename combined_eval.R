@@ -27,6 +27,10 @@ cart_data <- cart_data %>% mutate( sex=recode(cart_data$sex, "1" = "male", "2" =
 sim_data <- read.csv(paste0(infolder,"hgl_synth_challenge/synth_data/","simdata.csv"), header=TRUE) %>%
   select(-X)
 
+sim_data <- sim_data %>%
+  mutate( sex=recode(sim_data$sex, "male" = "male", "female" = "female") ) %>%
+  mutate( sex=as.factor(sex) )
+
 ### Get statistics for comparison
 # GAN Data
 synthpop::compare(gan_data, ods, utility.stats = c("S_pMSE", "df"))
@@ -55,4 +59,16 @@ text(disclosure~med_PMSE, labels = plotnames, pos=4)
 
 ### General PMSE scores
 # GAN Data
+utility.gen(gan_data, ods, method = "logit")
+##      pMSE    S_pMSE 
+##  0.024086 22.668925 
 
+# Simulated Data
+utility.gen(sim_data, ods, method = "logit")
+##      pMSE    S_pMSE 
+##  0.011416 10.744713
+
+# CART Data
+utility.gen(cart_data, ods, method = "logit")
+##      pMSE   S_pMSE 
+##  0.001567 1.475240 
