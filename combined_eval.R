@@ -29,7 +29,8 @@ sim_data <- read.csv(paste0(infolder,"hgl_synth_challenge/synth_data/","simdata.
 
 sim_data <- sim_data %>%
   mutate( sex=recode(sim_data$sex, "male" = "male", "female" = "female") ) %>%
-  mutate( sex=as.factor(sex) )
+  mutate( sex=as.factor(sex) ) %>%
+  select(sex, sat_v, sat_m, sat_sum, hs_gpa, fy_gpa)
 
 ### Get statistics for comparison
 # GAN Data
@@ -59,16 +60,28 @@ text(disclosure~med_PMSE, labels = plotnames, pos=4)
 
 ### General PMSE scores
 # GAN Data
-utility.gen(gan_data, ods, method = "logit")
+utility.gen(gan_data, ods, method = "logit", maxorder = 4)
 ##      pMSE    S_pMSE 
-##  0.024086 22.668925 
+##  0.044817 13.279192
+set.seed(42)
+utility.gen(gan_data, ods, method = "cart", print.variable.importance = T)
+##      pMSE   S_pMSE 
+##  0.174851 4.498710 
 
 # Simulated Data
-utility.gen(sim_data, ods, method = "logit")
+utility.gen(sim_data, ods, method = "logit", maxorder = 4)
 ##      pMSE    S_pMSE 
-##  0.011416 10.744713
+##  0.019014  5.633816
+set.seed(42)
+utility.gen(sim_data, ods, method = "cart", print.variable.importance = T)
+##      pMSE   S_pMSE 
+##  0.199173 5.204302
 
 # CART Data
-utility.gen(cart_data, ods, method = "logit")
+utility.gen(cart_data, ods, method = "logit", maxorder = 4)
 ##      pMSE   S_pMSE 
-##  0.001567 1.475240 
+##  0.004035 1.195561
+set.seed(42)
+utility.gen(cart_data, ods, method = "cart", print.variable.importance = T)
+##      pMSE   S_pMSE 
+##  0.052178 1.541352 
