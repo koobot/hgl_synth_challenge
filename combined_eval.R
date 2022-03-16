@@ -64,24 +64,24 @@ utility.gen(gan_data, ods, method = "logit", maxorder = 4)
 ##      pMSE    S_pMSE 
 ##  0.044817 13.279192
 set.seed(42)
-utility.gen(gan_data, ods, method = "cart", print.variable.importance = T)
+utility.gen(gan_data, ods, method = "cart", resamp.method = "perm", print.variable.importance = T)
 ##      pMSE   S_pMSE 
-##  0.174851 4.498710 
+##  0.174851 4.552905
 
 # Simulated Data
 utility.gen(sim_data, ods, method = "logit", maxorder = 4)
 ##      pMSE    S_pMSE 
 ##  0.019014  5.633816
 set.seed(42)
-utility.gen(sim_data, ods, method = "cart", print.variable.importance = T)
+utility.gen(sim_data, ods, method = "cart", resamp.method = "perm", print.variable.importance = T)
 ##      pMSE   S_pMSE 
-##  0.199173 5.204302
+##  0.199173 5.204665
 
 # CART Data
 utility.gen(cart_data, ods, method = "logit", maxorder = 4)
 ##      pMSE   S_pMSE 
 ##  0.004035 1.195561
 set.seed(42)
-utility.gen(cart_data, ods, method = "cart", print.variable.importance = T)
+utility.gen(cart_data, ods, method = "cart", resamp.method = "perm", print.variable.importance = T)
 ##      pMSE   S_pMSE 
 ##  0.052178 1.541352 
