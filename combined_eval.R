@@ -4,9 +4,9 @@ library(purrr)
 library(dplyr)
 
 # Load in all required data
-infolder <- "C:/Users/ryanjm/Documents/Synthetic Data Challenge/"
+infolder <- "C:/Users/kooste/Documents/"
 
-ods <- read.csv( paste0(infolder,"satgpa.csv"), header = TRUE ) 
+ods <- read.csv( paste0(infolder,"hgl_synth_challenge/original_data/satgpa.csv"), header = TRUE ) 
 
 ods <- ods %>% mutate( sex=recode(ods$sex, "1" = "male", "2" = "female") ) %>%
   mutate( sex=as.factor(sex) )
@@ -52,3 +52,7 @@ disclosure <- c(31/1000, 0 ,0)
 
 plot(med_PMSE,disclosure, xlab="Utility", ylab="Risk")
 text(disclosure~med_PMSE, labels = plotnames, pos=4)
+
+### General PMSE scores
+# GAN Data
+
